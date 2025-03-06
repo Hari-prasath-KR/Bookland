@@ -1,0 +1,69 @@
+.bookland-about-us-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(192, 76, 26, 0.484);
+    padding: 40px;
+  }
+  
+  .bookland-about-us-content {
+    max-width: 800px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .bookland-about-us-content h1 {
+    font-size: 1.9rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .bookland-about-us-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  .bookland-about-us-content h2 {
+    text-align: left;
+  }
+  
+ 
+  .bookland-about-us-content ul {
+    text-align: left;
+  }
+  
+  @media (max-width: 768px) {
+    .bookland-about-us-content {
+      padding: 20px;
+    }
+  
+    .bookland-about-us-content h1 {
+      font-size: 2rem;
+    }
+  
+    .bookland-about-us-content p {
+      font-size: 1rem;
+    }
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;   
+    float: left; 
+  }
+  
+  .logo img {
+    width: 90px; 
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .logo img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }

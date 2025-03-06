@@ -1,0 +1,141 @@
+.footer {
+    background-color: #282c35;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: left;
+  }
+  
+  .footer-section {
+    margin-bottom: 20px;
+    max-width: 200px;
+  }
+  
+  .footer-section h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  /* .footer-section ul li:hover {
+    color: #ffa500;
+  } */
+  
+  .app-buttons img {
+    width: 120px;
+    margin: 5px 0;
+  }
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+  }
+  
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    
+  }
+  
+  .footer-icons div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+  }
+  
+  .footer-icons img {
+    width: 80px;
+    margin-bottom: 5px;
+    height:100px;
+  }
+  
+  .footer-icons p {
+    font-size: 14px;
+  }
+  
+  .copyright {
+    margin-top: 15px;
+    font-size: 13px;
+    opacity: 0.7;
+  }
+  .follow {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: auto;
+    margin-top: 10px;
+  }
+  
+  .follow h5 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color:white
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .social-icons a {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.2);
+  }
+  
+  .social-icons a:nth-child(1) { color: #1877F2; } /* Facebook */
+  .social-icons a:nth-child(2) { color: #C13584; } /* Instagram */
+  .social-icons a:nth-child(3) { color: #1DA1F2; } /* Twitter */
+  
+  
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-section {
+      max-width: 100%;
+    }
+  
+    .footer-icons {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  

@@ -1,0 +1,137 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}.lang-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color:rgb(0, 189, 252);
+    backdrop-filter: blur(100px);
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 140px;
+    display: flex;
+    align-items: center;
+}
+.lang-nav {
+    background-color: #3f84c5b5; 
+    padding: 10px 10px;
+    padding-top: 15px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.lang-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+}
+
+.lang-list li {
+    padding: 10px 20px;
+    font-size: 20px; 
+    font-weight: bold;
+    color: #333;
+}
+
+.lang-list li:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 255, 0.329);
+    color: white;
+    border-radius: 5px;
+}
+
+.lang-content{
+    top:140px;
+    margin-top: 140px;
+    padding:20px;
+    padding-top:0%;
+    
+}
+.sirukavithai img{
+   height:200px;
+   width:100%;
+}
+#lbgimg{
+    height:300px;
+    width:100%;
+}
+#hindiimg{
+    scroll-margin-top:140px;
+ height:100px;
+ width:100%;
+}
+#gujimg{
+    scroll-margin-top:140px;
+    height:100px;
+    width:100%;
+}
+#tamilimg{
+    scroll-margin-top:140px;
+    height:100px;
+    width:100%;
+}  
+#malaimg{
+    scroll-margin-top:140px;
+    height:100px;
+    width:100%;
+}
+#maraimg{
+    scroll-margin-top:140px;
+    height:100px;
+    width:100%;
+}
+#benimg{
+    scroll-margin-top:140px;
+    height:100px;
+    width:100%;
+}
+#others{
+    scroll-margin-top:140px;
+}
+.lang-hindi-content{
+display: flex;
+flex-wrap: wrap; 
+gap: 0px;
+border-radius: 10px;
+justify-content: space-between;
+}
+.lang-hindi-content img{
+    width:300px;
+    height:250px;
+    border-radius: 10px;
+  }
+.limage-text p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 25px;;
+    margin-left: 10px;;
+  }
+  .lang-bgimg{
+    width:100%;
+    height:250px;
+  }
+  .lang-category{
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 0px;
+    border-radius: 10px;
+    justify-content: space-between;
+  }
+  .lang-category img{
+    width:200px;
+    height:180px;
+    border-radius: 10px;
+  }
+.txt-lang{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+   
+}
+  .lang-image-text p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-left: 10px;;
+  }

@@ -1,0 +1,83 @@
+
+.bshelf-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(192, 76, 26, 0.484);
+    backdrop-filter: blur(100px);
+    color: white;
+    height: 140px;
+    z-index: 1000;
+    padding: 10px 20px;
+  }
+
+  .fav-content {
+    width: 100%;
+    backdrop-filter: blur(100px);
+    background-color: rgba(240, 248, 255, 0.9); 
+    z-index: 100;
+    padding-top: 140px; 
+  }
+  
+  .fav-content h2 {
+    color: red;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+  
+  
+  .fav-books-list {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: start;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  
+  .fav-book-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .fav-book-card:hover {
+    transform: translateY(-5px);
+  }
+ 
+  .fav-book-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .remove-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width:100px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  .remove-btn:hover {
+    background-color: #cc0000;
+  }
+  .fav-books-list p {
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+  }

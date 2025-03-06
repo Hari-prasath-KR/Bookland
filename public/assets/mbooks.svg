@@ -1,0 +1,15 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="80" height="80" fill="#30333F"/>
+<rect x="13.1504" y="26.3916" width="13.3334" height="40.2759" rx="2.66667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="39.8174" y="26.3916" width="13.3334" height="40.2759" rx="2.66667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="26.4834" y="13.3345" width="13.3334" height="53.3331" rx="2.66667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="19.8173" cy="36.2329" r="3.49215" fill="#FF9975"/>
+<circle cx="46.4834" cy="54.9619" r="3.49215" fill="#FF9975"/>
+<path d="M19.8174 43.2197V58.4582" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M46.4834 32.7407V47.9792" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.4834 58.1313H39.8174" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.4834 52.9072H39.8174" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="53.1504" y="21.3135" width="13.3333" height="7.46585" fill="#FF9975"/>
+<rect x="53.1504" y="50.668" width="13.3333" height="7.46585" fill="#FF9975"/>
+<rect x="53.1504" y="13.3345" width="13.3334" height="53.3331" rx="2.66667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

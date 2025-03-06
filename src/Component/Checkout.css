@@ -1,0 +1,142 @@
+.billing-header {
+  background-color: rgba(192, 76, 26, 0.484) !important;
+}
+
+.billing-container {
+  margin-top: 150px;
+    float: left;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    font-family: Arial, sans-serif;
+    margin-left: 250px;
+  }
+
+  .billing-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .billing-container p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  
+  .billing-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+
+  .form-group2 label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  .form-group2 input::placeholder {
+    color: #aaa;
+  }
+
+.form-group2 input,
+.form-group2 select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  color: #333;
+  background-color: #fff;
+  transition: border 0.3s ease-in-out;
+}
+
+.form-group2 input:focus,
+.form-group2 select:focus {
+  border: 2px solid #000000b3;  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.974);
+}
+
+  .form-row {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+  }
+  
+  .submit-btn {
+    background-color: #ec1111ac;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+
+  }
+  
+  .submit-btn:hover {
+    background-color: #ec1111d1;
+  }
+
+  .order-summary {
+    float:right;
+    border: 1px solid #ddd;
+    padding: 16px;
+    margin: 20px auto;
+    margin-right: 250px;
+    width: 300px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #order{
+    margin-bottom: 12px;
+  }
+  
+  .order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+  }
+  
+  .order-item a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .order-item a:hover {
+    text-decoration: underline;
+  }
+  
+  hr {
+    margin: 10px 0;
+    border: 0.5px solid #ddd;
+  }
+  
+  .order-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .coupon{
+    margin-top: 15px;
+    background-color: rgba(255, 255, 0, 0.655);
+    width:100%;
+  }
+ .payment-details button{
+  margin-top: 10px;
+  background-color: rgba(255, 0, 0, 0.578);
+  color:white
+ }
+

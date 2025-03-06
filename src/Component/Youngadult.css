@@ -1,0 +1,82 @@
+.youngadult-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color:rgb(0, 189, 252);
+    backdrop-filter: blur(100px);
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 140px;
+    display: flex;
+    align-items: center;
+}
+.youngadult-header2{
+    margin-top: 140px;
+}
+.youngadult-content{
+   
+    padding:20px;
+    padding-top: 0%;
+}
+#bgimg{
+    width:100%;
+    height: 350px;
+}
+.young-nav {
+    background-color: #3f84c5b5; 
+    padding: 10px 10px;
+    padding-top: 15px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+.young-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+}
+
+.young-list li {
+    padding: 10px 20px;
+    font-size: 20px; 
+    font-weight: bold;
+    color: #333;
+}
+
+.young-list li:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 255, 0.329);
+    color: white;
+    border-radius: 5px;
+}
+.yimg{
+    width:100%;
+    height:250px;
+}
+#youngadult-fiction{
+    scroll-margin-top:140px;
+    height:100px;
+    width:100%;
+}
+#sciencefiction{
+    scroll-margin-top:140px;
+    height:100px;
+    width:100%;
+}
+#crime{
+    scroll-margin-top:140px;
+    height:100px;
+    width:100%;
+}
+#art{
+    scroll-margin-top:140px;
+    height:100px;
+    width:100%;
+}
+#tech{
+    scroll-margin-top:140px;
+    height:100px;
+    width:100%;
+}

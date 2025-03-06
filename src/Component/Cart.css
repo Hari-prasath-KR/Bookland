@@ -1,0 +1,233 @@
+ 
+.fixed-header {
+  position: fixed;
+  height: 150px;;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(192, 76, 26, 0.484); 
+    backdrop-filter:blur(100px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.fixed-header img {
+  height: 50px;
+  width: auto;
+  border-radius: 5px;
+}
+
+
+.fixed-header h1 {
+  color: white;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* Cart Page */
+.cart-page {
+  margin-top: 150px; /* Ensure content starts below the fixed header */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20px; /* Add padding for better spacing */
+}
+
+/* Cart Container */
+.cart-container {
+  width: 90%; /* Slightly wider for better spacing */
+  max-width: 1000px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart Header */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cart-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  font-size: 24px;
+  color: #333;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: rgba(1, 0, 0, 0.507);
+  transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+  color: #000; /* Darker color on hover */
+}
+
+/* Empty Cart */
+.empty-cart {
+  text-align: center;
+  padding: 40px 20px; /* More padding for better spacing */
+}
+
+.empty-cart p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.shop-btn {
+  background: #d62a2ab4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.shop-btn:hover {
+  background: #d62a2a; /* Darker shade on hover */
+}
+
+/* Cart Items */
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  background: rgba(223, 26, 26, 0.1); 
+  border-radius: 5px;
+}
+
+.cart-img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+.cart-details {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.cart-details h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.cart-details p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-control button {
+  font-size: 30px;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.quantity-control span {
+  font-size: 16px;
+  color: #333;
+}
+
+
+.remove-btn {
+  background: red;
+  width:50px;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.remove-btn:hover {
+  background: darkred; 
+}
+
+.cart-summary {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f8f8;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.cart-summary h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.cart-summary p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.cart-summary strong {
+  color: #333;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background: rgb(222, 25, 25);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background: rgba(222, 25, 25, 0.8); 
+}
