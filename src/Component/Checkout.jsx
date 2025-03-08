@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import './Checkout.css';
-
 import Header from './Header'
 import Payment from "./Payment";
 const Checkout=({}) => {
@@ -217,7 +216,7 @@ const Checkout=({}) => {
         payment()
       }}>
       <h2><center>Payment Details</center></h2>
-      <button type="submit" >Proceed</button>
+      <button  type="submit" >Proceed</button>
       </form></div> </div>
     </>
   );
