@@ -59,19 +59,24 @@
     height: auto;
     border-radius: 8px;
   }
-  
   .remove-btn {
+    display: inline-block;
     background-color: #ff4d4d;
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 8px 16px; 
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    width:100px;
+    width: auto;
+    min-width: 100px; 
     margin-top: 10px;
     transition: background-color 0.3s ease;
-  }
+    text-align: center;
+    box-sizing: border-box; 
+    font-weight: bold;
+    white-space: nowrap;
+}
   .remove-btn:hover {
     background-color: #cc0000;
   }

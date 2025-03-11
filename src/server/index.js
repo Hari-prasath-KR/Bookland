@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const cors = require("cors")
 const Usermodel = require('./models/users')
 const BookModel = require("./models/books");
+const FavoriteModel = require("./models/fav");
 const Razorpay = require("razorpay");
 const bodyparser = require("body-parser")
 require("dotenv").config();
@@ -75,6 +76,53 @@ app.post("/create-order", async (req, res) => {
   }
 });
 
+app.post("/favorites", async (req, res) => {
+  try {
+    const { user, newFavBook } = req.body;
+     
+    if (!user || !newFavBook || !newFavBook.name) {
+      return res.status(400).json({ error: "Missing user or item name" });
+    }
+
+    const existingFavorite = await FavoriteModel.findOne({ user, name: newFavBook.name });
+    if (existingFavorite) {
+      return res.json({ message: "Item already in favorites" });
+    }
+
+    const newFavorite = await FavoriteModel.create({
+      user: user,
+      name: newFavBook.name,
+      author:newFavBook.author,
+      image: newFavBook.image,
+      price: newFavBook.price,
+    });
+
+    res.json(newFavorite);
+  } catch (err) {
+    console.error("Error in /favorites:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.delete("/delfavorites", async (req, res) => {
+  try {
+    const { user, name } = req.body;
+    await FavoriteModel.findOneAndDelete({ user:user, name:name });
+    res.json("Item removed from favorites");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+app.get("/getfavorites", async (req, res) => {
+  try {
+    const { user} = req.query;
+    const favorites = await FavoriteModel.find({ user:user });
+    res.json(favorites);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 app.listen(3001,() =>{
     console.log("server run");
 })                                                                                                            

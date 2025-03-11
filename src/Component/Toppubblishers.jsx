@@ -19,7 +19,7 @@ export default function Home() {
         <div className="thome-content">
           {topimg.map((ele, idx) => (
             <div className="publisher-card" key={idx}>
-              <Displayyt image={ele.image} />
+              <Displayyt  image={ele.image}  src={ele.src}/>
             </div>
           ))}
         </div>

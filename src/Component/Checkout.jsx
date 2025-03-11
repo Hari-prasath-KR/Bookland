@@ -73,6 +73,7 @@ const Checkout=({}) => {
   return (
     <>
     <div className="billing-header"><Header/></div>
+    <div className="checkout-main-container">
     <div className="billing-container">
       <h2>Billing Details</h2>
       <p>
@@ -217,7 +218,7 @@ const Checkout=({}) => {
       }}>
       <h2><center>Payment Details</center></h2>
       <button  type="submit" >Proceed</button>
-      </form></div> </div>
+      </form></div> </div></div>
     </>
   );
 };

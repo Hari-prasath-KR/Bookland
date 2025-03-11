@@ -23,13 +23,15 @@ import Company from './Component/company'
 import Checkout from './Component/Checkout'
 import Payment from './Component/Payment'
 import Osha from './Component/Authors/Osha'
+import Getstarted from './Component/Getstarted'
 export default function App() {
   return (
     <>
     <BrowserRouter>
     <ScrollToTop/>
         <Routes>
-          <Route path='/' element={<Home/>}/>
+         <Route path='/' element={<Getstarted/>}/>
+          <Route path='/home' element={<Home/>}/>
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>

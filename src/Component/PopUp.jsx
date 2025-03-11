@@ -4,6 +4,7 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { Navigate,useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 export default function Popup({ ele, onClose }) {
   const navigate = useNavigate(); 
   const rating=4;
@@ -31,36 +32,58 @@ export default function Popup({ ele, onClose }) {
       totalPrice: total,
     };
     const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+if (!storedCartItems.some((item) => item.name === newProduct.name)) {
+    storedCartItems.push(newProduct);
+    localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
 
-    if (!storedCartItems.some((item) => item.name === newProduct.name)) {
-      storedCartItems.push(newProduct);
-      localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
-      alert("Book added to cart!");
-    } else {
-      alert("This book is already in your cart!");
-    }
+    Swal.fire({
+      title: "Added to Cart!",
+      text: "Book has been successfully added to your cart.",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+  } else {
+    
+    Swal.fire({
+      title: "Already in Cart!",
+      text: "This book is already in your cart.",
+      icon: "warning",
+      confirmButtonText: "OK",
+    });
+  }
   };
   const addToFavorites = () => {
     const newFavBook = { name: ele.name, price: ele.price, image:ele.image, author:ele.author };
     const storedFavItems = JSON.parse(localStorage.getItem("favItems")) || [];
 
   
-    if (!storedFavItems.some((item) => item.name === newFavBook.name)) {
-      storedFavItems.push(newFavBook);
-      localStorage.setItem("favItems", JSON.stringify(storedFavItems));
-      alert("Book added to favorites!");
-    } else {
-      alert("This book is already in your favorites!");
-    }
-  };
-  const totalPrice = (count, price) => {
+     if (!storedFavItems.some((item) => item.name === newFavBook.name)) {
+          storedFavItems.push(newFavBook);
+          localStorage.setItem("favItems", JSON.stringify(storedFavItems));
+  
+          Swal.fire({
+            title: "Added to Favorites!",
+            text: "Book has been successfully added to your favorites.",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+        } else {
+          Swal.fire({
+            title: "Already in Favorites!",
+            text: "This book is already in your favorites.",
+            icon: "warning",
+            confirmButtonText: "OK",
+          });
+        }
+      };
+    const totalPrice = (count, price) => {
     return count * price;
-  };
+    };
 
-  const addtobilling = () => {
+    const addtobilling = () => {
     navigate('/order-now', { state: { totalPrice: totalPrice(count, ele.price) } });
-  };
-  return (
+    };
+    return (
     <div className='pop-overlay'>
       <div className="pop-content">
         <button className='cls-btn' onClick={onClose}>

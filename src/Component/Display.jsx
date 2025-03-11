@@ -1,14 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../index.css";
 import { FaRegHeart } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import axios from "axios";
+import Bookshelf from "./Bookshelf";
+
+
 export default function Display({ image, name, author, price,onClick}) {
 
   const navigate = useNavigate();
 
+  const [user,setUser] = useState(null);
+
+  useEffect(()=>{
+    const store = localStorage.getItem("user");
+    if(store){
+        setUser(JSON.parse(store));
+    }
+  },[])
+
+  const [favorites, setFavorites] = useState([]);
  
+  useEffect(() => {
+    if (!user) return;
+  
+    const fetchFavorites = async () => {
+      try {
+        const res = await axios.get("http://localhost:3001/getfavorites", {
+          params: { user: user.email },
+        });
+  
+        console.log("Fetched Favorites from DB:", res.data);
+  
+        setFavorites(res.data); // Update state
+        localStorage.setItem("favItems", JSON.stringify(res.data)); // Store in local storage
+      } catch (err) {
+        console.error("Error fetching favorites:", err);
+      }
+    };
+  
+    fetchFavorites();
+  }, [user]); // Fetch whenever 'user' changes
+
 
 const addToCart = () => {
   const newProduct = { name, price, image };
@@ -18,7 +53,6 @@ const addToCart = () => {
     storedCartItems.push(newProduct);
     localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
 
-    // ✅ Success Alert
     Swal.fire({
       title: "Added to Cart!",
       text: "Book has been successfully added to your cart.",
@@ -26,7 +60,7 @@ const addToCart = () => {
       confirmButtonText: "OK",
     });
   } else {
-    // ❌ Warning Alert
+    
     Swal.fire({
       title: "Already in Cart!",
       text: "This book is already in your cart.",
@@ -36,19 +70,51 @@ const addToCart = () => {
   }
 };
 
-  const addToFavorites = () => {
-    const newFavBook = { name, price, image, author };
-    const storedFavItems = JSON.parse(localStorage.getItem("favItems")) || [];
 
-  
-    if (!storedFavItems.some((item) => item.name === newFavBook.name)) {
-      storedFavItems.push(newFavBook);
-      localStorage.setItem("favItems", JSON.stringify(storedFavItems));
-      alert("Book added to favorites!");
-    } else {
-      alert("This book is already in your favorites!");
+
+const addToFavorites = async () => {
+  if (!user) {
+    Swal.fire({
+      title: "Login Required!",
+      text: "You need to log in to add books to favorites.",
+      icon: "warning",
+      confirmButtonText: "OK",
+    });
+    return;
+  }
+
+  const newFavBook = { name, price, image, author };
+
+  if (!favorites.some((item) => item.name === newFavBook.name)) {
+    try {
+      const response = await axios.post('http://127.0.0.1:3001/favorites', { 
+        user: user.email, 
+        newFavBook: newFavBook 
+      });
+
+      const updatedFavorites = [...favorites, response.data]; // Corrected: Define updatedFavorites here
+      setFavorites(updatedFavorites);
+      localStorage.setItem("favItems", JSON.stringify(updatedFavorites)); // Move inside try block
+
+      Swal.fire({
+        title: "Added to Favorites!",
+        text: "Book has been successfully added to your favorites.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+
+    } catch (error) {
+      console.error("Error adding favorite:", error);
     }
-  };
+  } else {
+    Swal.fire({
+      title: "Already in Favorites!",
+      text: "This book is already in your favorites.",
+      icon: "warning",
+      confirmButtonText: "OK",
+    });
+  }
+};
 
   return (
     <div className="display-card">
