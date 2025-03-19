@@ -15,7 +15,6 @@
   .fav-content {
     width: 100%;
     backdrop-filter: blur(100px);
-    background-color: rgba(240, 248, 255, 0.9); 
     z-index: 100;
     padding-top: 140px; 
   }

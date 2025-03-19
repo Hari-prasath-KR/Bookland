@@ -4,6 +4,7 @@ const cors = require("cors")
 const Usermodel = require('./models/users')
 const BookModel = require("./models/books");
 const FavoriteModel = require("./models/fav");
+const CartModel = require("./models/cart");
 const Razorpay = require("razorpay");
 const bodyparser = require("body-parser")
 require("dotenv").config();
@@ -123,6 +124,57 @@ app.get("/getfavorites", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+app.post("/cart", async (req, res) => {
+  try {
+    const { user, newCartItem } = req.body;
+     
+    if (!user || !newCartItem || !newCartItem.name) {
+      return res.status(400).json({ error: "Missing user or item name" });
+    }
+
+    const existingCartItem = await CartModel.findOne({ user, name: newCartItem.name });
+    if (existingCartItem) {
+      return res.json({ message: "Item already in cart" });
+    }
+
+    const newCartItemEntry = await CartModel.create({
+      user: user,
+      name: newCartItem.name,
+      author: newCartItem.author,
+      quantity : newCartItem.quantity,
+      image: newCartItem.image,
+      price: newCartItem.price,
+    });
+
+    res.json(newCartItemEntry);
+  } catch (err) {
+    console.error("Error in /cart:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.delete("/delcart", async (req, res) => {
+  try {
+    const { user, name } = req.body;
+    await CartModel.findOneAndDelete({ user: user, name: name });
+    res.json("Item removed from cart");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+app.get("/getcart", async (req, res) => {
+  try {
+    const { user } = req.query;
+    const cartItems = await CartModel.find({ user: user });
+    res.json(cartItems);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 app.listen(3001,() =>{
     console.log("server run");
 })                                                                                                            

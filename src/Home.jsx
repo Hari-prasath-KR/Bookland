@@ -12,6 +12,7 @@ import Most from './Component/Images/Most'
 import Footer from './Component/Footer'
 import { useState } from 'react'
 import PopUp from './Component/PopUp'
+import { Navigate ,useNavigate } from 'react-router-dom'
 export default function Home() {
    const[showPopup,setShowPopup]=useState(false);
    const[currentEle,setCurrentEle]=useState(null);
@@ -24,7 +25,10 @@ export default function Home() {
    const closePopup=()=>{
 	setShowPopup(false);
    }
-   
+   const navigate=useNavigate();
+   const homefooter=()=>{
+    navigate('/offers')
+  }
 
   return (
     <>
@@ -119,7 +123,7 @@ export default function Home() {
 			<div><img src="./assets/homepageextraimg/ex3.jpg" alt="img3" /><p className='img-txt'>CBSC</p></div>
 			<div><img src="./assets/homepageextraimg/ex4.jpg" alt="img4" /><p className='img-txt'>ICSE</p></div>
 		</div><br/><br/>
-	  <img id="homefooter" src="./assets/homepageextraimg/footer.jpg" alt="footer" /></div>
+	  <img id="homefooter" src="./assets/homepageextraimg/footer.jpg" onClick={homefooter}alt="footer" /></div>
 	  {showPopup&&<PopUp ele={currentEle} onClose={closePopup}/>}
 	 <Footer/>
 	</>

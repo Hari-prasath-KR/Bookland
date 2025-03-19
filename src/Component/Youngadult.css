@@ -55,28 +55,18 @@
     width:100%;
     height:250px;
 }
-#youngadult-fiction{
+#youndsdult-fiction{
     scroll-margin-top:140px;
-    height:100px;
-    width:100%;
 }
 #sciencefiction{
     scroll-margin-top:140px;
-    height:100px;
-    width:100%;
 }
-#crime{
+#crime,#young-rom,#youngfam{
     scroll-margin-top:140px;
-    height:100px;
-    width:100%;
 }
 #art{
     scroll-margin-top:140px;
-    height:100px;
-    width:100%;
 }
 #tech{
     scroll-margin-top:140px;
-    height:100px;
-    width:100%;
 }

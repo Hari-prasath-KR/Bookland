@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
-
+import { useLocation, useNavigate } from "react-router-dom";
+import "../index.css"
 const Payment = () => {
   const location = useLocation();
   const {user,total} = location.state || {}
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -16,7 +16,9 @@ const Payment = () => {
   }, []);
 
   const handlePayment = async () => {
+    
     try {
+      console.log("Final total received in Payment:", total);
       const { data } = await axios.post("http://localhost:3001/create-order", { amount: total||500 });
       const options = {
         key: "rzp_test_FQu2cafqnWhiPC", 
@@ -45,10 +47,16 @@ const Payment = () => {
     }
   };
 
+  const  paytohome=()=>{
+    navigate('/home')
+  }
   return (
-    <div>
-      <h2>Make Payment</h2>
-      <button onClick={handlePayment}>Pay Now</button>
+    <div className="payment-container">
+      <h1 className="payment-title">Make Payment</h1>
+      <div className="button-group">
+        <button i onClick={handlePayment} className="pay-now">PayNow</button>
+        <button  onClick={paytohome} className="cancel">Cancel</button>
+      </div>
     </div>
   );
 };

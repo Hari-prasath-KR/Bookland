@@ -61,13 +61,13 @@ export default function Youngadult() {
         
          <nav className="young-nav">
       <ul className="young-list">
-       <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Fiction</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Science Fiction</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Crime&Mystery</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Romance</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Family&Social</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Tech&Sci</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Art</a></li>
+       <li ><a style={{color:"Black", textDecoration:"none"}} href="#youndsdult-fiction">Fiction</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#sciencefiction">Science Fiction</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#crime">Crime&Mystery</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#young-rom">Romance</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#youngfam">Family&Social</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#tech">Tech&Sci</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#art">Art</a></li>
       </ul>
     </nav>
         </div>
@@ -156,14 +156,14 @@ export default function Youngadult() {
           ))
        }
       </div><br/><br/>
-      <h1 className='efont'>Romance</h1><br/>
+      <h1 className='efont' id="young-rom">Romance</h1><br/>
  <div className="home-content">
 			{ romance.map((ele, idx) => (
             <Display key={idx} image={ele.image} name={ele.name} author={ele.author} price={ele.price} onClick={()=>ItemClick(ele)}/>
           ))
        }
       </div>
-      <h1 className='efont'>Family&Social</h1><br/>
+      <h1 className='efont' id="youngfam">Family&Social</h1><br/>
  <div className="home-content">
 			{ family.map((ele, idx) => (
             <Display key={idx} image={ele.image} name={ele.name} author={ele.author} price={ele.price} onClick={()=>ItemClick(ele)}/>

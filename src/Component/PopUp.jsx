@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Popup.css';
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { Navigate,useNavigate } from 'react-router-dom';
+import axios from "axios";
 import Swal from 'sweetalert2';
 export default function Popup({ ele, onClose }) {
   const navigate = useNavigate(); 
@@ -23,18 +24,90 @@ export default function Popup({ ele, onClose }) {
     }
   };
 
-  const addToCart = () => {
-    const newProduct = {
-      name: ele.name,
-      price: ele.price,
-      image: ele.image,
-      quantity: count,
-      totalPrice: total,
-    };
-    const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-if (!storedCartItems.some((item) => item.name === newProduct.name)) {
-    storedCartItems.push(newProduct);
-    localStorage.setItem("cartItems", JSON.stringify(storedCartItems));
+  const [user,setUser] = useState(null);
+  
+    useEffect(()=>{
+      const store = localStorage.getItem("user");
+      if(store){
+          setUser(JSON.parse(store));
+      }
+    },[])
+  
+    const [favorites, setFavorites] = useState([]);
+    const [cart, setCart] = useState([]);
+   
+    useEffect(() => {
+      if (!user) return;
+  
+      const fetchFavorites = async () => {
+        try {
+          const res = await axios.get("http://localhost:3001/getfavorites", {
+            params: { user: user.email },
+          });
+          console.log("Fetched Favorites from DB:", res.data);
+          setFavorites(res.data);
+          localStorage.setItem("favItems", JSON.stringify(res.data));
+        } catch (err) {
+          console.error("Error fetching favorites:", err);
+        }
+      };
+  
+      const fetchCart = async () => {
+        try {
+          const res = await axios.get("http://localhost:3001/getcart", {
+            params: { user: user.email },
+          });
+          console.log("Fetched Cart from DB:", res.data);
+          setCart(res.data);
+          localStorage.setItem("cartItems", JSON.stringify(res.data));
+        } catch (err) {
+          console.error("Error fetching cart:", err);
+        }
+      };
+  
+      fetchFavorites();
+      fetchCart();
+    }, [user]); 
+  
+   const addToCart = async () => {
+  if (!user) {
+    Swal.fire({
+      title: "Login Required!",
+      text: "You need to log in to add books to cart.",
+      icon: "warning",
+      confirmButtonText: "OK",
+    });
+    return;
+  }
+
+  const newCartItem = { 
+    name: ele.name, 
+    price: ele.price, 
+    image: ele.image, 
+    author: ele.author, 
+    quantity: count 
+  };
+
+  // Check if the book is already in the cart
+  if (cart.some((item) => item.name === newCartItem.name)) {
+    Swal.fire({
+      title: "Already in Cart!",
+      text: "This book is already in your cart.",
+      icon: "warning",
+      confirmButtonText: "OK",
+    });
+    return; // Stop execution if item already exists
+  }
+
+  try {
+    await axios.post("http://127.0.0.1:3001/cart", { 
+      user: user.email, 
+      newCartItem 
+    });
+
+    const updatedCart = [...cart, newCartItem]; // Append new item correctly
+    setCart(updatedCart);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
 
     Swal.fire({
       title: "Added to Cart!",
@@ -42,45 +115,69 @@ if (!storedCartItems.some((item) => item.name === newProduct.name)) {
       icon: "success",
       confirmButtonText: "OK",
     });
-  } else {
-    
-    Swal.fire({
-      title: "Already in Cart!",
-      text: "This book is already in your cart.",
-      icon: "warning",
-      confirmButtonText: "OK",
-    });
-  }
-  };
-  const addToFavorites = () => {
-    const newFavBook = { name: ele.name, price: ele.price, image:ele.image, author:ele.author };
-    const storedFavItems = JSON.parse(localStorage.getItem("favItems")) || [];
 
+  } catch (error) {
+    console.error("Error adding to cart:", error);
+  }
+};
+
+  const addToFavorites = async () => {
+    if (!user) {
+      Swal.fire({
+        title: "Login Required!",
+        text: "You need to log in to add books to favorites.",
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
   
-     if (!storedFavItems.some((item) => item.name === newFavBook.name)) {
-          storedFavItems.push(newFavBook);
-          localStorage.setItem("favItems", JSON.stringify(storedFavItems));
+    const newFavBook = { 
+      name: ele.name, 
+      price: ele.price, 
+      image: ele.image, 
+      author: ele.author 
+    };
   
-          Swal.fire({
-            title: "Added to Favorites!",
-            text: "Book has been successfully added to your favorites.",
-            icon: "success",
-            confirmButtonText: "OK",
-          });
-        } else {
-          Swal.fire({
-            title: "Already in Favorites!",
-            text: "This book is already in your favorites.",
-            icon: "warning",
-            confirmButtonText: "OK",
-          });
-        }
-      };
+    if (!favorites.some((item) => item.name === newFavBook.name)) {
+      try {
+        await axios.post('http://127.0.0.1:3001/favorites', { 
+          user: user.email, 
+          newFavBook 
+        });
+  
+        const updatedFavorites = [...favorites, newFavBook]; // Append book correctly
+        setFavorites(updatedFavorites);
+        localStorage.setItem("favItems", JSON.stringify(updatedFavorites));
+  
+        Swal.fire({
+          title: "Added to Favorites!",
+          text: "Book has been successfully added to your favorites.",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+  
+      } catch (error) {
+        console.error("Error adding favorite:", error);
+      }
+    } else {
+      Swal.fire({
+        title: "Already in Favorites!",
+        text: "This book is already in your favorites.",
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+    }
+  };
+  
+
+
     const totalPrice = (count, price) => {
     return count * price;
     };
 
     const addtobilling = () => {
+      console.log("Navigating with count:", count);
     navigate('/order-now', { state: { totalPrice: totalPrice(count, ele.price) } });
     };
     return (

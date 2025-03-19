@@ -214,3 +214,62 @@
 html, body {
   scroll-behavior: auto; 
 }
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f4040427;
+  padding: 20px;
+  font-family: 'Inter', sans-serif; 
+}
+
+.payment-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color:rgba(0, 0, 0, 0.879); 
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+}
+
+.button-group  button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background: #ffffff;
+  color: #333333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+}
+
+.pay-now {
+  background: #6c5ce7; 
+  color: white;
+}
+
+.pay-now:hover {
+  background: #5a4dcc;
+}
+
+.cancel {
+  background: #ff7675; 
+  color: white;
+}
+
+.cancel:hover {
+  background: #e66767; 
+}

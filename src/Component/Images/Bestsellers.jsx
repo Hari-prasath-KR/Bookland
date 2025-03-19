@@ -194,7 +194,7 @@ const bestseller=[
    price:800,
    rating:4.2,
     folder: "Bestsellers",
-     img:"img22.webp"
+     img:"img22.jpg"
 },{
    image: "./assets/Bestsellers/img23.jpg",
    name: "The Torchlight Gambit",
@@ -202,7 +202,7 @@ const bestseller=[
    price:400,
    rating:4.2,
     folder: "Bestsellers",
-     img:"img23.webp"
+     img:"img23.jpg"
 },{
    image: "./assets/Bestsellers/img24.jpg",
    name: "How to Get Filthy Rich",
@@ -210,7 +210,7 @@ const bestseller=[
    price:500,
    rating:4.2,
     folder: "Bestsellers",
-     img:"img24.webp"
+     img:"img24.jpg"
 },{
    image: "./assets/Bestsellers/img25.jpg",
    name: "The Shipping Man",
@@ -218,7 +218,7 @@ const bestseller=[
    price:300,
    rating:4.2,
     folder: "Bestsellers",
-     img:"img25.webp"
+     img:"img25.jpg"
 },{
    image: "./assets/Bestsellers/img26.jpg",
    name: "Ben Archer and the Cosmic Fall",
@@ -226,7 +226,7 @@ const bestseller=[
    price:250,
    rating:4.2,
    folder: "Bestsellers",
-   img:"img26.webp"
+   img:"img26.jpg"
 },
 ];
 

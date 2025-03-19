@@ -56,3 +56,6 @@
     color: white;
     border-radius: 5px;
 }
+#rel, #bussdev, #self, #csit, #auto, #economics {
+    scroll-margin-top: 160px;
+}

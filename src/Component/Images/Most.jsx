@@ -82,7 +82,7 @@ const Most = [
     },
     {
         image: "./assets/mostbuyed/mimg10.jpg", 
-        name: "Bella's House",
+        name: "On a Counch Somewhere in America",
         author: "Sandra Arnett Nethery",
         price: 400,
         rating: 4.1,

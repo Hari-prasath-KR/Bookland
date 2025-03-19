@@ -43,7 +43,7 @@ export default function Lang() {
        <li ><a style={{color:"Black", textDecoration:"none"}} href="#tamilimg">Tamil</a></li>
       <li ><a style={{color:"Black", textDecoration:"none"}} href="#hindiimg">Hindi</a></li>
       <li ><a style={{color:"Black", textDecoration:"none"}} href="#malaimg">Malayalam</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#punimg">Punjabi</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#others">Punjabi</a></li>
       <li ><a style={{color:"Black", textDecoration:"none"}} href="#gujimg">Gujarati</a></li>
       <li ><a style={{color:"Black", textDecoration:"none"}} href="#maraimg">Marathi</a></li>
       <li ><a style={{color:"Black", textDecoration:"none"}} href="#benimg">Bengali</a></li>

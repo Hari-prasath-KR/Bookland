@@ -31,12 +31,12 @@ export default function Nonfiction() {
        
         <nav className="nfic-nav">
       <ul className="nfic-list">
-       <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Self Help&Wellness</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Computers&IT</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Autobiographies</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Economics</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Business Development</a></li>
-      <li ><a style={{color:"Black", textDecoration:"none"}} href="#">Religion</a></li>
+       <li ><a style={{color:"Black", textDecoration:"none"}} href="#self">Self Help&Wellness</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#csit">Computers&IT</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#auto">Autobiographies</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#economics">Economics</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#bussdev">Business Development</a></li>
+      <li ><a style={{color:"Black", textDecoration:"none"}} href="#rel">Religion</a></li>
       </ul>
     </nav>
          
@@ -45,21 +45,21 @@ export default function Nonfiction() {
         <br/>
         <img className="nonimg"src="./assets/nonfiction/bgsub.png" alt="bg" />
         <br/><br/>
-        <h1 className='efont'>Self Help&Welleness</h1>
+        <h1 className='efont' id="self">Self Help&Welleness</h1>
     <div className="home-content">
 			{self.map((ele, idx) => (
             <Display key={idx} image={ele.image} name={ele.name} author={ele.author} price={ele.price} onClick={()=>ItemClick(ele)}/>
           ))
        }
       </div><br/><br/>
-      <h1 className='efont'>AutoBiography</h1>
+      <h1 className='efont' id="auto">AutoBiography</h1>
     <div className="home-content">
 			{bio.map((ele, idx) => (
             <Display key={idx} image={ele.image} name={ele.name} author={ele.author} price={ele.price} onClick={()=>ItemClick(ele)}/>
           ))
        }
       </div><br/>
-        <h1 className='efont'>Trending Categories</h1><br/>
+        <h1 className='efont' id="trend">Trending Categories</h1><br/>
     <div style={{gap:20}} className="fic-category-3">
      <img src="./assets/nonfiction/first1.png" alt="img1" />
      <img src="./assets/nonfiction/first2.png" alt="img1" />
@@ -73,7 +73,7 @@ export default function Nonfiction() {
 			<img src="./assets/nonfiction/sec3.png" alt="img3" />
 			<img src="./assets/nonfiction/sec4.png" alt="img4" />
 		</div><br/><br/>
-    <h1 className='efont'>Computer&IT</h1>
+    <h1 className='efont' id="csit">Computer&IT</h1>
     <div className="home-content">
 			{computer.map((ele, idx) => (
             <Display key={idx} image={ele.image} name={ele.name} author={ele.author} price={ele.price} onClick={()=>ItemClick(ele)}/>
@@ -93,7 +93,7 @@ export default function Nonfiction() {
       <h3 className='img-txt-fic'>Thrive Like a Champion</h3></div></div><br/><br/>
       <img className="nonimg"src="./assets/nonfiction/ibg2.png" alt="bg" /><br></br><br/>
 
-      <h1 className='efont'>Economics</h1>
+      <h1 className='efont' id="economics">Economics</h1>
     <div className="home-content">
 			{economics.map((ele, idx) => (
             <Display key={idx} image={ele.image} name={ele.name} author={ele.author} price={ele.price} onClick={()=>ItemClick(ele)}/>
@@ -101,7 +101,7 @@ export default function Nonfiction() {
        }
       </div><br/>
      
-      <h1 className='efont'>Business Development</h1>
+      <h1 className='efont' id="bussdev">Business Development</h1>
     <div className="home-content">
 			{development.map((ele, idx) => (
             <Display key={idx} image={ele.image} name={ele.name} author={ele.author} price={ele.price} onClick={()=>ItemClick(ele)}/>
@@ -129,7 +129,7 @@ export default function Nonfiction() {
      <img src="./assets/nonfiction/three3.png" alt="img1" />
      </div>
      <br/><br/>
-     <h1 className='efont'>Religion</h1>
+     <h1 className='efont' id="rel">Religion</h1>
     <div className="home-content">
 			{religion.map((ele, idx) => (
             <Display key={idx} image={ele.image} name={ele.name} author={ele.author} price={ele.price} onClick={()=>ItemClick(ele)}/>

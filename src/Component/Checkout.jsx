@@ -67,9 +67,10 @@ const Checkout=({}) => {
     e.preventDefault();
     alert("Billing details submitted successfully!");
   };
-  const payment=()=>{
-    navigate('/payment',{state:{user,finaltotal}})
-  }
+  const payment = () => {
+    navigate('/payment', { state: { user, finaltotal: orderDetails.finaltotal } });
+  };
+  
   return (
     <>
     <div className="billing-header"><Header/></div>
